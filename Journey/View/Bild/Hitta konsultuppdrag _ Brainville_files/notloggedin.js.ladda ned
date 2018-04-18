@@ -1,0 +1,124 @@
+﻿/*Specifik Jquery*/
+$(function () {
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 30) {
+            $('.topContentWrapper').addClass("topContentBackground");
+        } else {
+            $('.topContentWrapper').removeClass("topContentBackground");
+        }
+    });
+
+    $(".menuButton").click(function () {
+        if ($(".menu").is(":visible"))
+            $(".menu").fadeOut("fast");
+        else
+            $(".menu").fadeIn("fast");
+    });
+
+    $('select').each(function () {
+        $(this).on('change', function () {
+            var $this = $(this);
+            if (!$this.val()) {
+                $this.removeClass('value');
+            } else {
+                $this.addClass('value');
+            }
+        });
+
+        if ($(this).val()) {
+            $(this).addClass('value');
+        }
+    });
+
+    var df = 'Y-m-d';
+
+    $(".date").each(function () {
+        var minDate = $(this).data("mindate");
+        if (!minDate) minDate = '1910/01/01';
+        $(this).datetimepicker({ timepicker: false, scrollInput: false, minDate: minDate, maxDate: '2030/12/31', format: df, validateOnBlur: false });
+    });
+    
+    $(".date").change(function () { $(this).val($(this).val().substring(0, 10)) });
+});
+
+/*Laddar om sidan var 3:e timme*/
+if (tm) clearTimeout(tm);
+var tm = setTimeout("window.location.replace('/');", 180 * 60 * 1000);
+
+//Google
+(function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date(); a = s.createElement(o),
+    m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+ga('create', resrcKeys.ga_propertyId, 'auto');
+if (typeof gaSetDimensions === "function") {
+    gaSetDimensions();
+}
+ga('send', 'pageview');
+
+/*Amplitude*/
+(function (t, e) {
+    var n = t.amplitude || {};
+    var r = e.createElement("script");
+    r.type = "text/javascript";
+    r.async = true;
+    r.src = "https://d24n15hnbwhuhn.cloudfront.net/libs/amplitude-2.5.0-min.gz.js";
+    r.onload = function () { t.amplitude.runQueuedFunctions() };
+    var s = e.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(r, s);
+    var i = function () {
+        this._q = [];
+        return this;
+    };
+
+    function o(t) {
+        i.prototype[t] = function () {
+            this._q.push([t].concat(Array.prototype.slice.call(arguments, 0)));
+            return this;
+        };
+    }
+
+    var a = ["add", "set", "setOnce", "unset"];
+    for (var u = 0; u < a.length; u++) {
+        o(a[u]);
+    }
+    n.Identify = i;
+    n._q = [];
+
+    function c(t) {
+        n[t] = function () {
+            n._q.push([t].concat(Array.prototype.slice.call(arguments, 0)));
+        };
+    }
+
+    var l = ["init", "logEvent", "logRevenue", "setUserId", "setUserProperties", "setOptOut", "setVersionName", "setDomain", "setDeviceId", "setGlobalUserProperties", "identify"];
+    for (var p = 0; p < l.length; p++) {
+        c(l[p]);
+    }
+    t.amplitude = n;
+})(window, document);
+amplitude.init("3a813cc324265f506cb574ea660ee043");
+
+function createCookie(name, value, days) {
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + value + expires + "; path=/";
+}
+
+function readCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+}

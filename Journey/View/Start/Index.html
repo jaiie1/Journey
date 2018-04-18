@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html data-ng-app="app">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journey</title>
+    <link href="../../Content/bootstrap/bootstrap.less" rel="stylesheet" />
+    <script src="../../Scripts/angular.min.js"></script>
+    <script src="../../Scripts/angular-route.js"></script>
+    <script src="../../Scripts/jquery-3.3.1.js"></script>    
+    <script type="text/javascript"></script>
+  
+
+    <!--<script src="../../Scripts/bootstrap.js"></script>-->
+    <script src="../Jsfiler/script.js"></script>
+    <link href="../Less/Logging.css" rel="stylesheet" />
+    <link href="../Less/Dropdown.css" rel="stylesheet" />
+    <link href="../Less/NewTravel.css" rel="stylesheet" />
+    <link href="../Less/NewUser.css" rel="stylesheet" />
+    <link href="../Less/Overview.css" rel="stylesheet" />
+    <link href="../Less/Supportchat.css" rel="stylesheet" />
+    <link href="../Less/HomePage.css" rel="stylesheet" />
+    <link href="../Less/Rapport.css" rel="stylesheet" />
+    <!--Controllers-->
+    <script src="../Controllers/HomePage.js"></script>
+    <script src="../Controllers/NewUser.js"></script>
+    <script src="../Controllers/LoggingController.js"></script>
+    <script src="../Controllers/NewCar.js"></script>
+    <script src="../Controllers/OverviewController.js"></script>
+    <script src="../Controllers/SupperChatController.js"></script>
+    <script src="../Controllers/travelcontroller.js"></script>
+    <script src="../Controllers/DropDown.js"></script>
+    <script src="../Controllers/NewTravel.js"></script>
+    <script src="../Controllers/Rapport.js"></script>
+</head>
+<body>
+   
+    <div class="container">
+        <data-ng-view></data-ng-view>
+    </div>    
+</body>
+</html>
