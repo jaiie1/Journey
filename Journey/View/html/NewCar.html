@@ -2,19 +2,15 @@
 <div>
     <h1 class="hej">Journey</h1>
 </div>
-
-<strong>Lägg till/hantera fordon</strong>
+<div>
+    <div  data-ng-repeat="vehicle in vehicles">
+        
+    </div>
+</div>
 <br />
-<br />
-<form action="/action_page.php" style="border:1px solid #ccc">
-    <label for="exampleFormControlSelect1"></label>
-    <select ng-click="titleHandleVehicle" class="form-control" id="exampleFormControlSelect1">
-        <option>ABC123</option>
-    </select>
 
-
-    <button ng-click="addNewVehicleTitle">Lägg till ny fordon</button>
+<form >
+    <input data-ng-model="name.RegNr" type="text" placeholder="Registreringsnummer..." name="RegNr">
+    <br />
+    <button ng-click="addVehicle()" type="submit" class="btn btn-default"><strong>Lägg till</strong></button>
 </form>
-
-<button type="submit">Spara</button>
-

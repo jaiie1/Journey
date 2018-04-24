@@ -9,22 +9,22 @@
     <div class="container">
         <div class="form-group">
             <label for="exampleFormControlSelect1"></label>
-            <select class="form-control" id="exampleFormControlSelect1">
+            <select data-ng-model="GetVehicle" class="form-control" id="exampleFormControlSelect1">
                 <option>ABC123</option>
             </select>
-            <div>
+            <div data-ng-model="DataInfo">
            
             <br />
             <label for="uname"><b></b></label>
-            <input type="text" placeholder="Mätarställning Start" name="uname" required>
+            <input data-ng-model="DataInfo.startM" type="text" placeholder="Mätarställning Start" name="uname" required>
             <label for="uname"><b></b></label>
-            <input type="text" placeholder="Mätarställning Slut" name="uname" required>
+            <inpu data-ng-model="DataInfo.slutM"t type="text" placeholder="Mätarställning Slut" name="uname" required>
             <label for="uname"><b></b></label>
-            <input type="number" placeholder="Relängd km....." name="uname" required>
+            <input data-ng-model="DataInfo.ResaKm" type="number" placeholder="Relängd km....." name="uname" required>
             <label for="uname"><b></b></label>
-            <input type="text" placeholder="Startadress" name="uname" required>
+            <input data-ng-model="DataInfo.StartAdress" type="text" placeholder="Startadress" name="uname" required>
             <label for="uname"><b></b></label>
-            <input type="text" placeholder="Destinationsadress" name="uname" required>
+            <input data-ng-model="DataInfo.DesAdress" type="text" placeholder="Destinationsadress" name="uname" required>
             <label for="uname"><b></b></label>
             <input type="text" class="Arende" placeholder="Ärandet" name="uname" required>
             <label for="uname"><b></b></label>

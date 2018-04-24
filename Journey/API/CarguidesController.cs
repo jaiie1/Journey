@@ -1,4 +1,5 @@
-﻿using Journey.Models;
+﻿using Journey.DataAccess;
+using Journey.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;

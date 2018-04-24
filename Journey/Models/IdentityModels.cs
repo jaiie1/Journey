@@ -29,5 +29,7 @@ namespace Journey.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<Journey.Models.Vehicle> Vehicles { get; set; }
     }
 }

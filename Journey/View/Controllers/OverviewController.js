@@ -1,8 +1,10 @@
-﻿app.controller('OverviewController', function ($scope, $location) {
-    $scope.OverviewMessage = "Hej";
+﻿app.controller('OverviewController', function ($scope, $location, $rootScope) {
+     
+
+
 
     $scope.changeRoute = function () {
-        $location.path('/View/html/Newtravel.html');
+        $location.path('/NewTravel');
     };
    
 });

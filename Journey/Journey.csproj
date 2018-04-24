@@ -26,6 +26,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -199,10 +200,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="API\AccountController.cs" />
     <Compile Include="API\CarguidesController.cs" />
     <Compile Include="API\PeopleController.cs" />
+    <Compile Include="API\UserRepository.cs" />
     <Compile Include="API\VehiclesController.cs" />
+    <Compile Include="API\WebApiConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -239,6 +241,7 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TripController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DataAccess\DbContext.cs" />
     <Compile Include="Global.asax.cs">
@@ -1223,7 +1226,9 @@
       <DependentUpon>Supportchat.css</DependentUpon>
     </Content>
     <Content Include="View\Start\Index.html" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>

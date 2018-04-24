@@ -11,7 +11,7 @@ namespace Journey.Models
 
         public string RegNr { get; set; }
 
-        public bool Ative { get; set; }
+        public bool Active { get; set; }
 
         public List<Carguide> Carguides { get; set; }
 
