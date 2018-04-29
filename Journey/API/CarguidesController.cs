@@ -36,6 +36,7 @@ namespace Journey.Api
         }
 
         // PUT: api/Carguides/5
+        
         [ResponseType(typeof(void))]
         public IHttpActionResult PutCarguide(int id, Carguide carguide)
         {
@@ -71,6 +72,7 @@ namespace Journey.Api
         }
 
         // POST: api/Carguides
+        
         [ResponseType(typeof(Carguide))]
         public IHttpActionResult PostCarguide(Carguide carguide)
         {
@@ -86,6 +88,7 @@ namespace Journey.Api
         }
 
         // DELETE: api/Carguides/5
+
         [ResponseType(typeof(Carguide))]
         public IHttpActionResult DeleteCarguide(int id)
         {

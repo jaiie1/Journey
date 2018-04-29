@@ -1,5 +1,5 @@
 ﻿<ng-include src="'../directory/Directory.html'"></ng-include>
-<form action="/action_page.php" style="border:1px solid #ccc">
+<form style="border:1px solid #ccc">
     <div>
         <h1 class="hej">Journey</h1>
     </div>
@@ -9,28 +9,31 @@
     <div class="container">
         <div class="form-group">
             <label for="exampleFormControlSelect1"></label>
-            <select data-ng-model="GetVehicle" class="form-control" id="exampleFormControlSelect1">
-                <option>ABC123</option>
-            </select>
-            <div data-ng-model="DataInfo">
-           
-            <br />
-            <label for="uname"><b></b></label>
-            <input data-ng-model="DataInfo.startM" type="text" placeholder="Mätarställning Start" name="uname" required>
-            <label for="uname"><b></b></label>
-            <inpu data-ng-model="DataInfo.slutM"t type="text" placeholder="Mätarställning Slut" name="uname" required>
-            <label for="uname"><b></b></label>
-            <input data-ng-model="DataInfo.ResaKm" type="number" placeholder="Relängd km....." name="uname" required>
-            <label for="uname"><b></b></label>
-            <input data-ng-model="DataInfo.StartAdress" type="text" placeholder="Startadress" name="uname" required>
-            <label for="uname"><b></b></label>
-            <input data-ng-model="DataInfo.DesAdress" type="text" placeholder="Destinationsadress" name="uname" required>
-            <label for="uname"><b></b></label>
-            <input type="text" class="Arende" placeholder="Ärandet" name="uname" required>
-            <label for="uname"><b></b></label>
-            <input type="text" class="Andtek" placeholder="Antekningar" name="uname" required>
+            <select class="form-control" ng-model="vehicle_value" ng-options="vehicle.regNr for vehicle in vehicles" ng-change="setVehicle()"></select>
+            <div>
+                <br />
+                <div class="input-group">
+                    <input type="date" class="form-control" ng-model="date">
+                </div>
 
-        </div>
+                <input placeholder="Ange antal start Km" type="text" id="KmStart" ng-model="KmStart" /><br />
+                <input placeholder="Ange km vid slut" type="text" id="KmStop" ng-model="KmStop" /><br />
+                <input type="button" value="Sum" ng-click="sum(KmStart,KmStop)" />
+                <input type="text" ng-model="addition" />
+                <input ng-model="nr.StartDes" type="text" placeholder="Startadress" name="uname" required>
+                <button class="active" placeholder="Start location" ng-click="getStartDes()">Startadress</button>
+                <input ng-model="nr.StopDes" type="text" placeholder="Destinationsadress" name="KmStart" required>
+                <button class="active" placeholder="Start location" ng-click="getslutDes()">Slutadress</button>
+                <input type="text" class="Arende" placeholder="arandet" name="arende" required>
+                <input type="text" class="Andtek" placeholder="anteckningar" name="anteckningar" required>
+
+
+                <div ng-click="SaveTrip()">
+                    <button type="submit" class="add">
+                        Add
+                    </button>
+                </div>
+            </div>
 
     </div>
 </div>

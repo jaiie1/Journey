@@ -1,55 +1,116 @@
 ﻿app.controller('NewCarController', function ($scope, $http, $rootScope, $route) {
-    $scope.addVehicle = {};
-    
+             
+   
+    $http.get('/api/Vehicles').then(function (response) {
+        $scope.vehicles = response.data;
+    });
 
-    var dataObject = {
-        regNr: $scope.RegNr,
-        name: $scope.name
-    };
+        // Set vehicle to default
+        $scope.setAsDefault = function (asDefault) {
+            console.log("As default");
+            console.log(asDefault);
 
- 
+        };
 
-    
-    //$http({
-    //    method: 'GET',
-    //    headers: { 'Authorization': 'Bearer' + $rootScope.token },
-    //    url: '/api/Vehicles/'
-    //}).then(function (response) {
-    //    $scope.vehicles = response.data;
-    //}, function (error) {
-    //    console.log(error);
-    //});
+        // Skicka in status active/inactive
+        $scope.setStatus = function (vehicleActive,status) {
 
-    // Post new vehicle to the database:
-    $scope.addVehicle = function () {
-        $http({
-            method: 'POST',            
-            url: '/api/Vehicles',
-            data: dataObject,
-            headers: { 'Authorization': 'Bearer' + $rootScope.token }
-            // Passes in the data as a string.
-            
-    
-        })
-            // Reloads the page after posting a new vehicle to the database:
-            .then(function (data) {
-                console.log(data);
+            // Denna ska debugga
+            console.log("set Status");
+            console.log(vehicleActive);
+            console.log(vehicleActive.Active);
+            vehicleActive.active = status;
+            // Skicka in true or false
+            $http({
+                method: 'PUT',
+                url: '/api/Vehicles' + '/' + vehicleActive.vehicleId,
+                data: vehicleActive
+            }).then(function (data) {
+                
+                
+                
                 $route.reload();
             });
-    };
 
-    // Delete vehicle from the database:
-    $scope.deleteVehicle = function (vehicle) {
-        $http({
-            method: 'DELETE',
-            url: '/api/Carguides/5' + '/' + vehicle.VehicleId
-        })
-            // Reloads the page after deleting a vehicle from the database:
-            .then(function (data) {
-                console.log(data);
+        };
+
+    
+        $scope.addVehicle = function () {
+
+            var PostObject = {
+                regNr: $scope.nr.RegNr
+            };
+
+            $http({
+                method: 'POST',
+                url: '/api/Vehicles',
+                data: PostObject
+                //headers: {
+                //    'Authorization': 'Bearer ' + $rootScope.token
+                //}          
+
+            }).then(function (data) {
                 $route.reload();
+                console.log(data);
+                
             });
+
+        };
+
+    $scope.setVehicle = function () {
+        $scope.vehicle = $scope.vehicle_value;
     };
 
+        $scope.deleteVehicle = function (vehicle) {
+            $http({
+                method: 'DELETE',
+                url: '/api/Vehicles' + '/' + vehicle.vehicleId
+            })
+
+                .then(function (data) {
+                    console.log(data);
+                    $route.reload();
+                });
+        };
+    
 });
+
+//method: 'GET',
+//    //headers: { 'Authorization': 'Bearer' + $rootScope.token },
+//    url: 'api/Vehicles/5'
+//    }).then(function (response) {
+//    $scope.vehicles = response.data;
+//}, function (error) {
+//    console.log(error);
+//});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//};
+
+//// Delete vehicle from the database:
+//$scope.deleteVehicle = function (vehicle) {
+//    $http({
+//        method: 'DELETE',
+//        url: '/api/Carguides/5' + '/' + vehicle.VehicleId
+//    })
+//        // Reloads the page after deleting a vehicle from the database:
+//        .then(function (data) {
+//            console.log(data);
+//            $route.reload();
+//        });
+//};
+
+
 

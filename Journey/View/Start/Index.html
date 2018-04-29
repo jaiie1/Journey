@@ -1,19 +1,22 @@
 ﻿<!DOCTYPE html>
 
-<html data-ng-app="app">
+<html>
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" , shrink-to-fit">
     <title>Journey</title>
     <link href="../../Content/bootstrap/bootstrap.less" rel="stylesheet" />
     <script src="../../Scripts/angular.min.js"></script>
     <script src="../../Scripts/angular-route.js"></script>
-    <script src="../../Scripts/jquery-3.3.1.js"></script>    
+    <script src="../../Scripts//angular-touch.min.js"></script>
+    <script src="../../Scripts/jquery-3.3.1.js"></script>
     <script type="text/javascript"></script>
-  
+   
 
-    <!--<script src="../../Scripts/bootstrap.js"></script>-->
+
+    <!-- Less filerna-->
+    <link href="../Less/NewCar.css" rel="stylesheet" />
     <script src="../Jsfiler/script.js"></script>
     <link href="../Less/Logging.css" rel="stylesheet" />
     <link href="../Less/Dropdown.css" rel="stylesheet" />
@@ -35,10 +38,14 @@
     <script src="../Controllers/NewTravel.js"></script>
     <script src="../Controllers/Rapport.js"></script>
 </head>
-<body>
-   
+<body data-ng-app="app">
+
+    
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPJMsS6AQE3hlO27TKN3tIKigrTVwDelU" type="text/javascript"></script>
+
     <div class="container">
         <data-ng-view></data-ng-view>
-    </div>    
+    </div>
 </body>
 </html>

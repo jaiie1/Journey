@@ -2,15 +2,31 @@
 <div>
     <h1 class="hej">Journey</h1>
 </div>
-<div>
-    <div  data-ng-repeat="vehicle in vehicles">
-        
+<br />
+<div>   
+    <div>       
+        <div>
+            <select class="form-control" ng-model="vehicle_value" ng-options="vehicle.regNr for vehicle in vehicles" ng-change="setVehicle()"></select>
+
+            <div ng-show="vehicle">
+                <button type="button" class="btn btn-success btn-sm" ng-click="setAsDefault(vehicle)">Set standard</button>
+                <button type="button" ng-hide="vehicle.active" class="btn btn-success btn-sm" ng-click="setStatus(vehicle,true)">Aktiv</button>
+                <button type="button" ng-show="vehicle.active" class="btn btn-warning btn-sm" ng-click="setStatus(vehicle,false)">Inactivate</button>
+                <button type="button" class="btn btn-danger btn-sm" ng-click="deleteVehicle(vehicle)">Remove</button>
+            </div>
+        </div>
     </div>
 </div>
-<br />
 
-<form >
-    <input data-ng-model="name.RegNr" type="text" placeholder="Registreringsnummer..." name="RegNr">
-    <br />
-    <button ng-click="addVehicle()" type="submit" class="btn btn-default"><strong>Lägg till</strong></button>
-</form>
+
+
+<div>
+    <form ng-submit="addVehicle()">
+        <div>
+            <input type="text" class="form-control text-center" placeholder="Registration number" name="RegNr" ng-model="nr.RegNr">
+        </div>
+        <button type="submit" class="add">
+            Add
+        </button>
+    </form>
+</div>

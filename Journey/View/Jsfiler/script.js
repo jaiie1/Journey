@@ -46,46 +46,20 @@ angular.module("app").config(
      
     });
 
+//$httpProvider.defaults.transformRequest = function (data) {
+//    if (data === undefined)
+//        return data;
+//    var clonedData = $.extend(true, {}, data);
+//    for (var property in clonedData)
+//        if (property.substr(0, 1) == '$')
+//            delete clonedData[property];
 
-//app.run(['authService', function (authService) {
-//    authService.fillAuthData();
-//}]);
-
-//app.config(function ($httpProvider) {
-//    $httpProvider.interceptors.push('authInterceptorService');
-//});
-
-// (function ($rootScope, $location, Data) {
-//    $rootScope.$on("$routeChangeStart", function (event, next, current) {
-//        $rootScope.authenticated = false;
-//        Data.get('session').then(function (results) {
-//            if (results.uid) {
-//                $rootScope.authenticated = true;
-//                $rootScope.uid = results.uid;
-//                $rootScope.name = results.name;
-//                $rootScope.email = results.email;
-//            } else {
-//                var nextUrl = next.$$route.originalPath;
-//                if (nextUrl == '/signup' || nextUrl == '/login') {
-
-//                } else {
-//                    $location.path("/login");
-//                }
-//            }
-//        });
-//    });
-//});
+//    return $.param(clonedData);
+//};
 
 
-    //}).controller('mainController', function ($scope) {
-    //    $scope.title = "Main";
-    //}).controller('userController', function ($scope) {
-    //    $scope.title = "New User";
-    //}).controller('editController', function ($scope) {
-    //    $scope.title = "Edit User";
-    //}).controller('loggingController', function ($scope) {
-    //    $scope.title = "Logging user";
-    //});
+
+
 
     
 

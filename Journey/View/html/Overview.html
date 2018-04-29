@@ -2,19 +2,17 @@
 <div>
     <h1 class="hej">Journey</h1>
 </div>
-
+<div>
 <button data-ng-click="changeRoute()">Ny Resa</button>
 
 
     
     <br />
     <br />
-    <div class="Presa">Pågående Resa</div>
+    
 
 <br />
-<div class="form-group">
-    <label for="exampleFormControlSelect1"></label>
-    <select class="form-control" id="exampleFormControlSelect1">
-        <option>Jönköpings vägen, 15</option>
-    </select>
+<div ng-model="car" class="form-group">
+    <select class="form-control" ng-model="car_value" ng-options="carguide.StartDes for carguide in carguides" ng-change="setVehicle()">Pågående Resor</select>
+</div>
 </div>
