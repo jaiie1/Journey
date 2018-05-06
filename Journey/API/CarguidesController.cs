@@ -1,7 +1,6 @@
-﻿using Journey.DataAccess;
-using Journey.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
@@ -9,12 +8,13 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
+using Journey.Models;
 
-namespace Journey.Api
+namespace Journey.API
 {
     public class CarguidesController : ApiController
     {
-        private DefaultDataContext db = new DefaultDataContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: api/Carguides
         public IQueryable<Carguide> GetCarguides()
@@ -36,7 +36,6 @@ namespace Journey.Api
         }
 
         // PUT: api/Carguides/5
-        
         [ResponseType(typeof(void))]
         public IHttpActionResult PutCarguide(int id, Carguide carguide)
         {
@@ -72,7 +71,6 @@ namespace Journey.Api
         }
 
         // POST: api/Carguides
-        
         [ResponseType(typeof(Carguide))]
         public IHttpActionResult PostCarguide(Carguide carguide)
         {
@@ -88,7 +86,6 @@ namespace Journey.Api
         }
 
         // DELETE: api/Carguides/5
-
         [ResponseType(typeof(Carguide))]
         public IHttpActionResult DeleteCarguide(int id)
         {

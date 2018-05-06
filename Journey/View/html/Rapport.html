@@ -1,3 +1,26 @@
 ﻿<ng-include src="'../directory/Directory.html'"></ng-include>
+<h2>Skapa Diagram</h2>
 
+<form>
+    <div class="form-group">
+        <label for="vehicle">Välj fordon</label>
+        <select class="form-control" id="vehicle" name="vehicle"  ng-model="vehicle_value" ng-options="vehicle.regNr for vehicle in vehicles">
+            <option value="">Välj fordon...</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="firstdate">Från:</label>
+        <input type="date" class="form-control" id="firstdate" placeholder="Datum" ng-model="queryObj.FirstDate">
+    </div>
+    <div class="form-group">
+        <label for="lastDate">Till:</label>
+        <input type="date" class="form-control" id="lastDate" placeholder="Datum" ng-model="queryObj.LastDate">
+    </div>
+    <button type="submit" class="btn btn-outline-success" ng-click="saveReport(queryObj)">Skapa</button>
+</form>
 
+<!--Chart-->
+<div style="padding-top: 10px" ng-if="report">
+
+    <canvas id="doughnut" class="chart chart-doughnut" chart-data="data" chart-labels="labels"></canvas>
+</div>

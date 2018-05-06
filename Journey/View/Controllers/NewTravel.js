@@ -1,17 +1,41 @@
-﻿app.controller('travelController', function ($scope, $location, $rootScope, $http, $routeParams) {
+﻿app.controller('travelController', function ($scope, $location, $rootScope, $http, $routeParams, $route, $filter) {
 
-   
+    if ($rootScope.Trip) {
+        
+        $http.get('/api/Carguides/' + $rootScope.Trip).then(function (response) {
+            console.log(response.data);
+
+            //$scope.date = $filter('date')(response.data.date, 'yyyy-MM-dd 00:00:00');
+            $scope.date = new Date(response.data.date);
+            $scope.KmStart = response.data.kmStart;
+            $scope.KmStop = response.data.kmStop;
+            $scope.addition = response.data.addition;
+            $scope.StartDes = response.data.startDes;
+            $scope.StopDes = response.data.stopDes;
+            $scope.Andtek = response.data.andtek;
+            $scope.Arende = response.data.arende;
+
+
+            
+
+        });
+
+    }
 
 
     $scope.sum = function (KmStart, KmStop) {
         $scope.addition = parseInt(KmStart) + parseInt(KmStop);
     };
 
-    //$http.get('/api/Carguides').then(function (response) {
-    //    $scope.vehicles = response.data;
-    //});
+    $http.get('/api/Vehicles').then(function (response) {
+        $scope.vehicles = response.data;
+        console.log($scope.vehicles);
+    });
 
-  
+
+    $scope.setVehicle = function () {
+        $scope.vehicle = $scope.vehicle_value;
+    };
 
   
 
@@ -24,9 +48,9 @@
             geocoder.geocode({ 'location': latLng }, function (results, status) {
                 if (status === 'OK') {
                     if (results[0]) {
-                        $scope.nr.StartDes = results[0].formatted_address;
+                        $scope.StartDes = results[0].formatted_address;
                         $scope.$apply();
-                        console.log($scope.nr.StartDes);
+                        console.log($scope.StartDes);
                     } else {
                         console.log("No results found.");
                     }
@@ -44,9 +68,9 @@
             geocoder.geocode({ 'location': latLng }, function (results, status) {
                 if (status === 'OK') {
                     if (results[0]) {
-                        $scope.nr.StopDes = results[0].formatted_address;
+                        $scope.StopDes = results[0].formatted_address;
                         $scope.$apply();
-                        console.log($scope.nr.StopDes);
+                        console.log($scope.StopDes);
                     } else {
                         console.log("No results found.");
                     }
@@ -80,12 +104,14 @@
     $scope.SaveTrip = function () {
 
         var PostTrip = {
-
-            kmStart: $scope.nr.KmStart,
-            kmStop: $scope.nr.KmStop,
+            date: $filter('date')($scope.date, 'yyyy-MM-dd'),
+            kmStart: $scope.KmStart,
+            kmStop: $scope.KmStop,
             addition: $scope.addition,
             startDes: $scope.StartDes,
-            stgopDes: $scope.StopDes
+            stopDes: $scope.StopDes,
+            andtek: $scope.Andtek,
+            arende: $scope.Arende
 
         };
 
@@ -93,11 +119,8 @@
         $http({
             method: 'POST',
             url: '/api/Carguides',
-            data: PostTrip
-            //headers: {
-            //    'Accept': 'application/json; charset=utf-8',
-            //    'Content-Type': 'application/json; charset=utf-8'
-            //}
+            data: PostTrip,
+            headers: { 'Authorization': 'Bearer ' + $rootScope.token }
         }).then(function (data) {
             $route.reload();
             console.log(data);

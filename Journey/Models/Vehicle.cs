@@ -16,6 +16,7 @@ namespace Journey.Models
 
         public List<Carguide> Carguides { get; set; }
 
+        //public User UserId { get; set; }
         public Vehicle()
         {
             Carguides = new List<Carguide>();

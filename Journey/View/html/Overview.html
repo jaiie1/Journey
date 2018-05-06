@@ -13,6 +13,6 @@
 
 <br />
 <div ng-model="car" class="form-group">
-    <select class="form-control" ng-model="car_value" ng-options="carguide.StartDes for carguide in carguides" ng-change="setVehicle()">Pågående Resor</select>
+    <select class="form-control" ng-model="car_value" ng-options="carguide.carguideId as carguide.startDes for carguide in carguides | filter: {stopDes:''}" ng-change="setVehicle()">Pågående Resor</select>
 </div>
 </div>

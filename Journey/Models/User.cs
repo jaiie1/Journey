@@ -21,6 +21,7 @@ namespace Journey.Models
 
         public bool Active { get; set; }
 
+       
         public int OwnVehicleId { get; set; }
     }
 }

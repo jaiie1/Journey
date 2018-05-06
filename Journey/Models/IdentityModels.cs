@@ -1,4 +1,5 @@
-﻿using System.Security.Claims;
+﻿using System.Collections.Generic;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
@@ -31,5 +32,10 @@ namespace Journey.Models
         }
 
         public System.Data.Entity.DbSet<Journey.Models.Vehicle> Vehicles { get; set; }
+
+        public System.Data.Entity.DbSet<Journey.Models.PdfModel> PdfModels { get; set; }
+        public IEnumerable<object> Carguide { get; internal set; }
+
+        public System.Data.Entity.DbSet<Journey.Models.Carguide> Carguides { get; set; }
     }
 }

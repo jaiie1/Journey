@@ -1,7 +1,7 @@
-﻿var app = angular.module("app", ['ngRoute']);
+﻿var app = angular.module("app", ['ngRoute', 'ngMaterial', 'chart.js']);
 
 
-angular.module("app").config(
+app.config(
 
     function ($routeProvider) {
         $routeProvider

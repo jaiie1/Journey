@@ -9,7 +9,7 @@
     <div class="container">
         <div class="form-group">
             <label for="exampleFormControlSelect1"></label>
-            <select class="form-control" ng-model="vehicle_value" ng-options="vehicle.regNr for vehicle in vehicles" ng-change="setVehicle()"></select>
+            <select class="form-control" ng-model="vehicle_value" ng-options="vehicle.regNr for vehicle in vehicles | filter: {active:'true'}" ng-change="setVehicle()"></select>
             <div>
                 <br />
                 <div class="input-group">
@@ -20,12 +20,12 @@
                 <input placeholder="Ange km vid slut" type="text" id="KmStop" ng-model="KmStop" /><br />
                 <input type="button" value="Sum" ng-click="sum(KmStart,KmStop)" />
                 <input type="text" ng-model="addition" />
-                <input ng-model="nr.StartDes" type="text" placeholder="Startadress" name="uname" required>
+                <input ng-model="StartDes" type="text" placeholder="Startadress" required>
                 <button class="active" placeholder="Start location" ng-click="getStartDes()">Startadress</button>
-                <input ng-model="nr.StopDes" type="text" placeholder="Destinationsadress" name="KmStart" required>
+                <input ng-model="StopDes" type="text" placeholder="Destinationsadress">
                 <button class="active" placeholder="Start location" ng-click="getslutDes()">Slutadress</button>
-                <input type="text" class="Arende" placeholder="arandet" name="arende" required>
-                <input type="text" class="Andtek" placeholder="anteckningar" name="anteckningar" required>
+                <input ng-model="Arende" type="text" class="Arende" placeholder="Ärenden" name="arende">
+                <input ng-model="Andtek" type="text" class="Andtek" placeholder="Anteckningar" name="anteckningar">
 
 
                 <div ng-click="SaveTrip()">
@@ -41,13 +41,3 @@
 
 
 
-<!--<md-content ng-controller="AppCtrl as ctrl" layout-padding ng-cloak>
-    <div layout-gt-xs="row">
-        <div flex-gt-xs>
-            <h4>Standard date-picker</h4>
-            <md-datepicker ng-model="ctrl.myDate" md-placeholder="Enter date"></md-datepicker>
-        </div>
-
-    </div>
-</md-content>-->
-<!--<span onclick="openMenu()" class="w3-button w3-display-topright w3-transparent w3-hover-dark-grey" title="Close Menu" style="font-weight:bold;padding-top:10px;padding-bottom:11px;">×</span>-->
