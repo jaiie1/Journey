@@ -8,15 +8,15 @@
             <option value="">Välj fordon...</option>
         </select>
     </div>
-    <div class="form-group">
-        <label for="firstdate">Från:</label>
-        <input type="date" class="form-control" id="firstdate" placeholder="Datum" ng-model="queryObj.FirstDate">
+    <div>
+        <label for="fromDate">Från:</label>
+        <input type="date" class="form-control" id="fromDate" placeholder="Datum" ng-model="query.FromDate">
     </div>
     <div class="form-group">
-        <label for="lastDate">Till:</label>
-        <input type="date" class="form-control" id="lastDate" placeholder="Datum" ng-model="queryObj.LastDate">
+        <label for="toDate">Till:</label>
+        <input type="date" class="form-control" id="toDate" placeholder="Datum" ng-model="query.ToDate">
     </div>
-    <button type="submit" class="btn btn-outline-success" ng-click="saveReport(queryObj)">Skapa</button>
+    <button type="submit" class="btn btn-outline-success" ng-click="saveReport(query)">Skapa</button>
 </form>
 
 <!--Chart-->

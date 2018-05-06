@@ -11,7 +11,7 @@ namespace Journey.Models
     {
         public int CarguideId { get; set; }
 
-        public Vehicle Vehicle { get; set; }
+        //public Vehicle Vehicle { get; set; }
 
         public DateTime Date { get; set; }
         
@@ -27,9 +27,9 @@ namespace Journey.Models
 
         public string Arende { get; set; }
 
-      
+        public int Car_Id { get; set; }
 
-        public Carguide(DateTime Date, int kmStart, int kmStop, string startDes, string stopDes, string andtek, string arende, Vehicle vehicle)
+        public Carguide(DateTime Date, int kmStart, int kmStop, string startDes, string stopDes, string andtek, string arende /*Vehicle vehicle*/)
         {
 
             
@@ -41,7 +41,7 @@ namespace Journey.Models
             StopDes = stopDes;
             Andtek = andtek;
             Arende = arende;
-            Vehicle = vehicle;
+            //Vehicle = vehicle;
 
         }
         public Carguide()

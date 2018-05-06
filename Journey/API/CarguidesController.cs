@@ -8,19 +8,32 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
+using Journey.DataAccess;
 using Journey.Models;
 
 namespace Journey.API
 {
     public class CarguidesController : ApiController
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private DefaultDataContext db = new DefaultDataContext();
 
         // GET: api/Carguides
         public IQueryable<Carguide> GetCarguides()
         {
             return db.Carguides;
         }
+        public List<Carguide> GetCarguidesByVehicleId(int vehicleId)
+        {
+            return db.Carguides.Where(x => x.Car_Id == vehicleId).ToList();
+        }
+
+        public List<Carguide> GetCarByDate(int vehicleId, DateTime fromDate, DateTime toDate)
+        {
+            return db.Carguides.Where(x => x.Car_Id == vehicleId && x.Date > fromDate && x.Date < toDate).ToList();
+        }
+
+       
+
 
         // GET: api/Carguides/5
         [ResponseType(typeof(Carguide))]

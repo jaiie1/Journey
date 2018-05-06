@@ -17,7 +17,7 @@ namespace Journey.DataAccess
 
        
         public DbSet<Vehicle> Vehicles { get; set; }
-        public DbSet<Carguide> Trips { get; set; }
+       
         public DbSet<Carguide> Carguides { get; set; }
 
        
