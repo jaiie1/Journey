@@ -20,7 +20,10 @@ namespace Journey.DataAccess
        
         public DbSet<Carguide> Carguides { get; set; }
 
-       
+        public static DefaultDataContext Create()
+        {
+            return new DefaultDataContext();
+        }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
